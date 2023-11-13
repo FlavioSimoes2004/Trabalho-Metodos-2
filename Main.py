@@ -1,9 +1,7 @@
 import DiferencasDivididas as dd
 
 def main():
-    #dd.getDiferencas([1, 2, 3])
-    #print(dd.diferencas([1, 2, 3], 1, False))
-    print(dd.getDiferencas([1, 2, 3, 4]))
+    print(dd.getDiferencas2([-2, -1, 0, 1, 2], [1, 2, 1, -1, -2]))
 
 
 
