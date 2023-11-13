@@ -50,7 +50,7 @@ def calcInter(list, ordem):
 
     divisao = list[ordem] - list[0]
     ordem -= 1
-    return calcInter(list2, ordem) - calcInter(list1, ordem) / divisao
+    return (calcInter(list2, ordem) - calcInter(list1, ordem)) / divisao
 
 
 
@@ -102,7 +102,7 @@ def calcInter2(listx, list, ordem):
         got += 1
         if got == ordem:
             break
-
+    
     divisao = list[ordem] - list[0]
     ordem-=1
-    return calcInter2(listx, list2, ordem) - calcInter2(listx, list1, ordem) / divisao
+    return (calcInter2(listx, list2, ordem) - calcInter2(listx, list1, ordem)) / divisao
