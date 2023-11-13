@@ -8,37 +8,32 @@ def getDiferencas(list):
 
     for i in range(n):
         print(i)
-        newMatrix.append(diferencas(list, i, False))
+        newMatrix.append(diferencas(list, i))
         
     return newMatrix
 
 
 
-def diferencas(list, ordem, recursivo):
+def diferencas(list, ordem):
     n = list.__len__()
     listReturn = []
+    listParameter = []
 
-    if ordem == 0:
-        if recursivo == False:
-            for i in range(n):
-                listReturn.append(funcao(list[i]))
-            return listReturn
-        else:
-            print("seila")
-    else:
-        got = 0
-        listRecursivo = []
-        for i in range(n):
-            listRecursivo.append(list[i])
-            got += 1
-            if i == n - 1:
-                listReturn.append(diferencas(listRecursivo, (ordem - 1), True))
-                break
-            elif got == ordem + 1:
-                listReturn.append(diferencas(listRecursivo, (ordem - 1), True))
-                got = 0
-                i-=1
-        return listReturn
+    got = 0
+    pos = 0
+    while(pos < n):
+        listParameter.append(list[pos])
+        got+=1
+        if got == ordem + 1:
+            got = 0
+            listReturn.append(calcInter(listParameter, ordem))
+            listParameter = []
+            pos-=ordem
+        pos+=1
+    
+    return listReturn
+
+
     
 
 
@@ -57,4 +52,4 @@ def calcInter(list, ordem):
         if got == ordem:
             break
 
-    return calcInter(list2, ordem - 1) - calcInter(list1, ordem -1) / (list[list.__len__() - 1] - list[0])
+    return calcInter(list2, ordem - 1) - calcInter(list1, ordem - 1) / (list[list.__len__() - 1] - list[0])
