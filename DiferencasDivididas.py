@@ -2,7 +2,7 @@ def funcao(x):
     return x ** 2
 
 
-def getDiferencas(list):
+def getOrdem(list):
     newMatrix = []
     n = list.__len__()
 
@@ -54,7 +54,7 @@ def calcInter(list, ordem):
 
 
 
-def getDiferencas2(listx, ly):
+def getOrdem2(listx, ly):
     global listy
     listy = list.copy(ly)
 
@@ -106,3 +106,42 @@ def calcInter2(listx, list, ordem):
     divisao = list[ordem] - list[0]
     ordem-=1
     return (calcInter2(listx, list2, ordem) - calcInter2(listx, list1, ordem)) / divisao
+
+
+def getP(x, listx, ly):
+    matriz = getOrdem2(listx, ly)
+    listResult = []
+    listToResult = []
+    for i in range(len(listx)):
+        if i == 0:
+            listResult.append(matriz[0][0])
+        else:
+            for j in range(i + 1):
+                if j == i:
+                    listToResult.append(matriz[i][0])
+                else:
+                    listToResult.append(x - listx[j])
+            listResult.append(multiVetor(listToResult))
+            listToResult = []
+    
+    return somaVetor(listResult)
+    
+
+
+
+def multiVetor(vet):
+    if len(vet) == 0:
+        return 0
+    
+    result = 1
+    for i in vet:
+        result *= i
+    return result
+
+
+def somaVetor(vet):
+    result = 0
+
+    for i in vet:
+        result += i
+    return result
