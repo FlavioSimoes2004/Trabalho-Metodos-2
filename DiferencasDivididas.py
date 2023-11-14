@@ -62,7 +62,7 @@ def getOrdem2(listx, ly):
     n = listx.__len__()
 
     for i in range(n):
-        print(i)
+        #print(i)
         newMatrix.append(diferencas2(listx, i))
         
     return newMatrix
