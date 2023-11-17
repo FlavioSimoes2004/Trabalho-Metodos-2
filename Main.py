@@ -7,7 +7,8 @@ def teste(x):
 def main():
     #print(DD.getOrdem2([-2, -1, 0, 1, 2], [1, 2, 1, -1, -2]))
     print(teste(1))
-    print(DD.getP(1.0, [-2, -1, 0, 1, 2], [1, 2, 1, -1, -2]))
+    print(DD.getP(1.0, [-2.0, -1.0, 0.0, 1.0, 2], [1.0, 2.0, 1.0, -1.0, -2.0]))
+    print(DD.getErroTrunc(1.0, [-2.0, -1.0, 0.0, 1.0, 2]))
 
 
 

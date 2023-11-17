@@ -1,3 +1,5 @@
+import math
+
 def funcao(x):
     return x ** 2
 
@@ -125,8 +127,6 @@ def getP(x, listx, ly):
             listToResult = []
     
     return somaVetor(listResult)
-    
-
 
 
 def multiVetor(vet):
@@ -145,3 +145,21 @@ def somaVetor(vet):
     for i in vet:
         result += i
     return result
+
+
+def funcaoDerivada(x):
+    return 0
+
+def getErroTrunc(x, listx):
+    #nao esquecer de mudar a funcao derivada
+    fx = funcaoDerivada(x)
+    if fx == 0:
+        return 0
+    
+    divisao = funcaoDerivada(x) / (math.factorial(len(listx)))
+    listToResult = []
+
+    for i in listx:
+        listToResult.append(x - i)
+
+    return multiVetor(listToResult) * divisao
