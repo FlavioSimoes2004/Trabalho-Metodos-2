@@ -16,7 +16,7 @@ def main():
         choice =  int(input())
         while choice < 0 or choice > 3:
             print('escolha invalida, digite novamente: ')
-            choice = input()
+            choice = int(input())
 
         if choice == 0:
             break
