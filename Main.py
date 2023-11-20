@@ -13,7 +13,7 @@ def main():
     choice = 0
     while True:
         print(txt)
-        choice = input()
+        choice =  int(input())
         while choice < 0 or choice > 3:
             print('escolha invalida, digite novamente: ')
             choice = input()
