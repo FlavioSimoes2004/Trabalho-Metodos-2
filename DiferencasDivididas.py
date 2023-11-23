@@ -152,8 +152,8 @@ def funcaoDerivada(x):
 
 def getErroTrunc(x, listx):
     #nao esquecer de mudar a funcao derivada
-    fx = funcaoDerivada(x)
-    if fx == 0:
+    fxDerivada = funcaoDerivada(x)
+    if fxDerivada == 0:
         return 0
     
     divisao = funcaoDerivada(x) / (math.factorial(len(listx)))

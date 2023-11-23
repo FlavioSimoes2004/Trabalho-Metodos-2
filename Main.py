@@ -6,8 +6,8 @@ import DiferencasFinitas as DF
 
 def main():
     x = 1
-    lx = []
-    ly = []
+    lx = [-2.0, -1.0, 0.0, 1.0, 2.0]
+    ly = [1.0, 2.0, 1.0, -1.0, -2.0]
 
     txt = '0 - fecha programa\n1 - lagrange\n2 - diferencas divididas\n3 - diferencas finitas'
     choice = 0
@@ -21,14 +21,17 @@ def main():
         if choice == 0:
             break
         elif choice == 1:
-            print("P = ", L.getP(x, lx, ly))
+            print("\nP = ", L.getP(x, lx, ly))
             print("erro truncamento = ", L.getErroTrunc(x, lx))
         elif choice == 2:
+            print("\nORDEM = ", DD.getOrdem2(lx, ly))
             print("P = ", DD.getP(x, lx, ly))
             print("erro truncamento = ", DD.getErroTrunc(x, lx))
         else:
+            print("\nORDEM = ", DF.getOrdem(lx, ly))
             print("P = ", DF.getP(x, lx, ly))
             print("erro truncamento = ", DF.getEt(x, lx))
+        print("\n")
         
 
 
