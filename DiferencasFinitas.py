@@ -1,6 +1,5 @@
 import math
 
-
 def getOrdem(lx, ly):
     if len(lx) != len(ly):
         raise Exception("Tamanho diferente")
@@ -19,62 +18,59 @@ def getOrdem(lx, ly):
         listToMatriz = []
     
     return matriz
-
-
+    
+    
+    
 def getP(x, lx, ly):
     if len(lx) != len(ly):
-        raise Exception("Tamanho diferente")
-
+        raise Exception('TAMANHO DIFERENTE')
+    
     matriz = getOrdem(lx, ly)
+    listResult = []
     h = lx[1] - lx[0]
     z = (x - lx[0]) / h
-    listResult = []
-
+    
     for i in range(len(lx)):
         if i == 0:
             listResult.append(matriz[i][0])
-        elif i == 1:
-            listResult.append((z / math.factorial(i)) * matriz[i][0])
         else:
-            toAppend = 1
-            for j in range(i - 1):
-                if j == 0:
-                    j+=1
-                toAppend *= z - j
-            
-            toAppend = ((z * toAppend) / math.factorial(i)) * matriz[i][0]
-            if i == len(lx) - 1:
-                n = len(lx) - 1
-                toAppend *= (z - (n - 1))
-                toAppend = ((z * toAppend) / math.factorial(i)) * matriz[i][0]
-            listResult.append(toAppend)
-
-
+            fracao = 1
+            for a in range(i):
+                fracao *= z - a
+                
+            fracao = fracao / math.factorial(i)
+            listResult.append(fracao * matriz[i][0])
+    
+    
     return somaVet(listResult)
+    
 
 
 def funcaoDerivada(x):
-    return x + 1
-
+    return x
+    
+    
 def getEt(x, lx):
     h = lx[1] - lx[0]
     z = (x - lx[0]) / h
-
-    retorno = 1
-    n = len(lx) - 1
-    for i in range(n):
-        if i == 0:
-            i+=1
-        retorno *= z - i
+    size = len(lx)
     
-    retorno = (h**(n + 1) * z * retorno) * funcaoDerivada(x) / math.factorial(n + 1)
-
-    return retorno
-
+    result = h**size
+    
+    for i in range(size):
+        result *= z - i
+    
+    result *= funcaoDerivada(x) / math.factorial(size)
+    
+    return result
+    
+    
+    
+    
 def somaVet(vet):
     result = 0
-
+    
     for i in vet:
         result += i
-
+    
     return result
